@@ -1,13 +1,33 @@
-import './ExploreContainer.css';
+import { IonButton, useIonActionSheet } from "@ionic/react";
+import "./ExploreContainer.css";
 
-interface ContainerProps { }
+interface ContainerProps {}
 
 const ExploreContainer: React.FC<ContainerProps> = () => {
+  const [present] = useIonActionSheet();
+
   return (
-    <div id="container">
-      <strong>Ready to create an app?</strong>
-      <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-    </div>
+    <>
+      <IonButton
+        onClick={() => {
+          present({
+            buttons: [
+              {
+                text: "Focus",
+                handler: () => {
+                  setTimeout(() => {
+                    document.querySelector("input")?.focus();
+                  });
+                },
+              },
+            ],
+          });
+        }}
+      >
+        Open action sheet
+      </IonButton>
+      <input type="text" />
+    </>
   );
 };
 
