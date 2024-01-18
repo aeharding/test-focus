@@ -1,0 +1,7 @@
+{
+  "name": "test-focus",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}
